@@ -1,0 +1,22 @@
+<mat-card class="mt10" *ngFor="let item of quizzes">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title [ngClass]="{'text-green': item.active == '1'}"> {{item.title}}</mat-card-title>
+        <mat-card-subtitle [ngClass]="{'text-green': item.active == '1'}">{{item.category.title}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p [ngClass]="{'text-green': item.active == '1'}">{{item.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" [routerLink]="'/admin/view-questions/'+item.qid+'/'+item.title" routerLinkActive="router-link-active" >Questions</button>
+        <button mat-stroked-button color="accent">Max Marks: {{item.maxMarks}}</button>
+        <button mat-stroked-button color="accent">Questions: {{item.numberOfQuestions}}</button>
+        <button mat-raised-button color="accent" [routerLink]="['/admin/quiz/'+item.qid]" routerLinkActive="router-link-active" >Update</button>
+        <button mat-raised-button color="accent">Attempts</button>
+        <button mat-flat-button class="ml10" color="warn" (click)="deleteQuiz(item.qid)">Delete</button>
+      </mat-card-actions>
+</mat-card>
+
+<div class="container text-center mt20">
+    <button mat-raised-button color="accent" [routerLink]="['/admin/add-quiz']" routerLinkActive="router-link-active" >Add New Quiz</button>
+</div>

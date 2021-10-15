@@ -1,0 +1,34 @@
+<mat-toolbar color="accent">
+    <button
+    [routerLink]="['/']"
+    mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu_book</mat-icon>
+    </button>
+    <span>Examportal</span>
+    <span class="example-spacer"></span>
+      <button
+      *ngIf="!isLoggedIn"
+    [routerLink]="['/login']"
+    mat-icon-button class="example-icon favorite-icon right" aria-label="Example icon-button with heart icon">
+      Login
+    </button>
+    <button
+    *ngIf="!isLoggedIn"
+    [routerLink]="['/signup']"
+    mat-icon-button class="example-icon right mr20 ml20" aria-label="Example icon-button with share icon">
+      Register
+    </button>
+      <button
+      *ngIf="isLoggedIn && user"
+    (click)="logout()"
+    mat-icon-button class="example-icon favorite-icon right" aria-label="Example icon-button with heart icon">
+      Logout
+    </button>
+    <button
+    routerLink="/admin/profile"
+    *ngIf="isLoggedIn && user"
+    style="margin-right: 50px;"
+    mat-icon-button class="example-icon right ml20" aria-label="Example icon-button with share icon">
+     {{ user.username }}
+    </button>
+</mat-toolbar>

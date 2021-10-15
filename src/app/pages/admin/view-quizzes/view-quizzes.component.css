@@ -1,0 +1,8 @@
+.example-header-image {
+    background-image: url('../../../../assets/exam.png');
+    background-size: cover;
+  }
+
+.text-green{
+    color: green !important;
+}
